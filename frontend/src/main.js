@@ -24,7 +24,11 @@ const router = new VueRouter({
     {
       path : '/add',
       component : Add
-    }
+    },
+    {
+      path : '/edit/:id',
+      component : Add
+    }    
   ]
 })
 
@@ -33,6 +37,8 @@ Vue.use(VueRouter)
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
+//the path to the api
+Vue.prototype.$url = 'http://localhost:3000/'
 new Vue({
   render: h => h(App),
   router:router

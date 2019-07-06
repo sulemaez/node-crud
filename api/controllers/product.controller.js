@@ -38,7 +38,7 @@ exports.product = (req,res) =>{
 }
 
 exports.update = (req,res) =>{
-   Product.findByIdAndUpdate(req.params.id,{$set : req.body},(err,product)=>{
+   Product.findOneAndUpdate({_id : req.params.id},{$set : req.body},(err,product)=>{
       if(err){
          res.status(500).send({ error: "Product Not Updated!" });
       }else{
@@ -48,7 +48,7 @@ exports.update = (req,res) =>{
 }
 
 exports.delete = (req,res) =>{
-   Product.findByIdAndDelete(req.params.id,(err)=>{
+   Product.findOneAndDelete({_id : req.params.id},(err)=>{
       if(err){
          res.status(500).send({ error: "Product Not Deleted!" });
       }else{
