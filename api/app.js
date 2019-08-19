@@ -7,8 +7,7 @@ const cors = require('cors')
 let port = 3000
 
 //connect to db
-let dev_db_url = 'mongodb+srv://root:h4k9ePoq2RGY5Bzz@cluster0-wcoki.mongodb.net/test?retryWrites=true&w=majority';
-let mongoDB = process.env.MONGODB_URI || dev_db_url;
+let mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB,{useNewUrlParser : true});
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
